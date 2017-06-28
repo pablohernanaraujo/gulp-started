@@ -21,7 +21,7 @@ gulp.task('html', () => {
 gulp.task('css', () => {
 	return gulp.src('src/stylus/styles.styl')
 		.pipe(plumber())
-		.pipe(stylus({compress: true}))
+		.pipe(stylus({use: nib(),compress: false}))
 		.pipe(gulp.dest('build/'))
 		.pipe(reload({stream: true}));
 });

@@ -37,7 +37,7 @@ gulp.task('js', () => {
 
 gulp.task('watch', () => {
 	gulp.watch('src/jade/**/*.jade',['html']);
-	gulp.watch('src/stylus/styles.styl',['css']);
+	gulp.watch('src/stylus/**/*.styl',['css']);
 	gulp.watch('src/scripts/**/*.js',['js']);
 });
 

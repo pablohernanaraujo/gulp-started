@@ -6,7 +6,8 @@ const gulp        = require('gulp'),
 	  uglify      = require('gulp-uglify'),
 	  concat      = require('gulp-concat'),
 	  plumber     = require('gulp-plumber'),
-	  browserSync = require('browser-sync');
+	  browserSync = require('browser-sync'),
+	  ghPages     = require('gulp-gh-pages');
 
 const reload = browserSync.reload;
 
@@ -48,6 +49,11 @@ gulp.task('browserSync', () => {
 			baseDir: 'build'
 		}
 	});
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('default', ['html','css','js','browserSync','watch']);
